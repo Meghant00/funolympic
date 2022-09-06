@@ -1,4 +1,6 @@
 <template>
-  <h2 class="text-3xl">Dashboard</h2>
+  <normal-dashboard />
 </template>
-<script setup></script>
+<script setup>
+import NormalDashboard from "@/components/dashboard/NormalDashboard.vue";
+</script>

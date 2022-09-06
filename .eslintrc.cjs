@@ -8,7 +8,12 @@ module.exports = {
     "eslint:recommended",
     "@vue/eslint-config-prettier",
   ],
-  parserOptions: {
-    ecmaVersion: "latest",
+  rules: {
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+      },
+    ],
   },
 };

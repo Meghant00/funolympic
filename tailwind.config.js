@@ -10,6 +10,8 @@ module.exports = {
         success: "#009e3d",
         danger: "#e00024",
         "fun-orange": "#ee3823",
+        "background-gray": "#2d2d2d",
+        "background-gray-light": "#323232",
       },
     },
   },
