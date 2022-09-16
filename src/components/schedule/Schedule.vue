@@ -14,6 +14,7 @@
         :time="schedule.time"
         :date="schedule.date"
         :link="schedule.link"
+        :id="schedule.id"
       />
     </div>
   </div>

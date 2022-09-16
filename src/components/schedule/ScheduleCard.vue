@@ -1,6 +1,6 @@
 <template>
   <router-link
-    to=""
+    :to="{ name: 'Broadcast', params: { id: props.id } }"
     class="flex flex-col items-start justify-start gap-4 w-full transition-all duration-150 ease-linear group py-8 px-4 shadow-none lg:flex-row lg:w-4/5 hover:bg-background-gray hover:shadow-md"
   >
     <div class="text-xl">{{ props.time }}</div>
@@ -29,5 +29,6 @@ const props = defineProps([
   "image",
   "time",
   "link",
+  "id",
 ]);
 </script>

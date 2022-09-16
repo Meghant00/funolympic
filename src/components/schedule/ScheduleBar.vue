@@ -1,11 +1,11 @@
 <template>
   <div
-    class="w-full flex flex-row items-center justify-between text-xl px-4 py-2 mx-auto bg-background-gray text-gray-300"
+    class="w-full flex flex-row items-center justify-between text-xl px-4 py-2 mx-auto bg-background-gray text-gray-700"
   >
     <button
-      class="w-[10%] flex flex-row items-center justify-start text-white"
+      class="w-[10%] flex flex-row items-center justify-start"
       @click="decreaseDate"
-      :class="{ 'text-gray-300': currentStartDate === 0 }"
+      :class="{ 'text-gray-700': currentStartDate === 0 }"
       :disabled="currentStartDate < 1"
     >
       <Icon> <ChevronLeft /></Icon>
@@ -18,7 +18,7 @@
         :key="date"
         class="w-full px-4"
         :class="{
-          'text-white': active_el === i,
+          'text-black': active_el === i,
         }"
         @click="dateClicked(i)"
       >
@@ -26,7 +26,7 @@
       </button>
     </div>
     <button
-      class="w-[10%] flex flex-row items-center justify-end text-white"
+      class="w-[10%] flex flex-row items-center justify-end"
       :class="{ 'text-gray-300': currentEndDate === 30 }"
       @click="increaseDate"
       :disabled="currentEndDate > 29"

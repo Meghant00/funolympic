@@ -20,7 +20,7 @@
         :rules="rules"
       />
       <p class="text-red-800 italic" v-if="loginError">
-        Please Enter email or password
+        {{ errorMessage }}
       </p>
       <router-link to="" class="text-blue-600">Forget Password?</router-link>
       <div class="w-full flex flex-row items-center justify-center">
@@ -39,6 +39,7 @@ import { useRouter } from "vue-router";
 import TextInput from "@/components/reuseable/TextInput.vue";
 import { ref } from "vue";
 import logo from "@/assets/img/logo/fun-olympic.png";
+import { userData } from "@/utils/userData.js";
 ("Login");
 const router = useRouter();
 const email = ref(null);
@@ -47,12 +48,47 @@ const loginError = ref(false);
 const rules = ref({
   required: true,
 });
+const errorMessage = ref(null);
 
 const loginClicked = () => {
   loginError.value = false;
-  if (email.value && password.value) {
+  if (!email.value && !password.value) {
+    loginError.value = true;
+    errorMessage.value = "Please Enter all the fields";
+    return;
+  }
+
+  let flag = false;
+  userData.map((user) => {
+    loginError.value = false;
+    if (
+      (email.value === user.email || email.value === user.username) &&
+      password.value === user.password
+    ) {
+      flag = true;
+      return;
+    }
+    if (!flag) {
+      {
+        loginError.value = true;
+        errorMessage.value = "Invalid Username/Email or Password";
+        return;
+      }
+    }
+  });
+
+  if (!loginError.value) {
+    localStorage.setItem(
+      "user",
+      JSON.stringify(
+        userData.filter(
+          (user) =>
+            (user.username === email.value || user.email === email.value) &&
+            user.password === password.value
+        )[0]
+      )
+    );
     router.push({ name: "Dashboard" });
   }
-  loginError.value = true;
 };
 </script>
