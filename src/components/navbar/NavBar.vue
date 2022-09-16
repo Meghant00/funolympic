@@ -56,8 +56,8 @@ import { BellRegular, UserRegular } from "@vicons/fa";
 const menuOpened = ref(false);
 const notificationOpened = ref(false);
 const router = useRouter();
-const username = ref(JSON.parse(localStorage.getItem("user")).username);
 const logoutClicked = () => {
   router.push({ name: "Login" });
+  localStorage.setItem("user", JSON.stringify(null));
 };
 </script>
