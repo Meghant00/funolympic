@@ -2,10 +2,22 @@
   <div
     class="w-full h-[50px] flex flex-row items-center justify-between px-4 py-4"
   >
-    <div class="logo">
-      <img :src="logo" alt="logo" class="w-full h-12 object-contain" />
+    <div class="logo w-full flex items-center justify-start">
+      <router-link :to="{ name: 'Dashboard' }">
+        <img :src="logo" alt="logo" class="w-full h-12 object-contain" />
+      </router-link>
     </div>
-    <div class="flex flex-row items-center justify-start gap-4">
+    <div class="w-full">
+      <n-select
+        placeholder="Select Broadcast"
+        v-model:value="broadcast"
+        :options="broadcastOptions"
+        clearable
+        filterable
+        @update:value="broadcastSelected"
+      />
+    </div>
+    <div class="flex flex-row items-center justify-end gap-4 w-full">
       <div class="relative">
         <button
           @click="notificationOpened = !notificationOpened"
@@ -48,16 +60,33 @@
 
 <script setup>
 import logo from "@/assets/img/logo/fun-olympic.png";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import { Icon } from "@vicons/utils";
 import { BellRegular, UserRegular } from "@vicons/fa";
+import { NSelect } from "naive-ui";
+import { liveGameData } from "@/utils/liveGameData";
 ("NavBar");
 const menuOpened = ref(false);
 const notificationOpened = ref(false);
 const router = useRouter();
+const broadcastOptions = ref([]);
+const broadcast = ref(null);
 const logoutClicked = () => {
   router.push({ name: "Login" });
   localStorage.setItem("user", JSON.stringify(null));
+};
+
+onMounted(() => {
+  liveGameData.map((liveGame) => {
+    broadcastOptions.value.push({
+      label: liveGame.title,
+      value: liveGame.id,
+    });
+  });
+});
+
+const broadcastSelected = () => {
+  router.push({ name: "Broadcast", params: { id: broadcast.value } });
 };
 </script>

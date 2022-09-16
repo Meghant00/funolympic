@@ -47,6 +47,5 @@ onMounted(async () => {
   liveGames.value = await liveGameData.filter(
     (liveGame) => liveGame.id !== Number(route.params.id)
   );
-  console.log("first");
 });
 </script>
