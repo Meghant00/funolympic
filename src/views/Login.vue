@@ -31,6 +31,9 @@
           Login
         </button>
       </div>
+      <router-link :to="{ name: 'Signup' }" class="text-blue-600"
+        >Need an account? <span>Sign Up</span></router-link
+      >
     </form>
   </div>
 </template>
@@ -39,7 +42,7 @@ import { useRouter } from "vue-router";
 import TextInput from "@/components/reuseable/TextInput.vue";
 import { ref } from "vue";
 import logo from "@/assets/img/logo/fun-olympic.png";
-import { userData } from "@/utils/userData.js";
+import { useUserStore } from "@/stores/userStore.js";
 ("Login");
 const router = useRouter();
 const email = ref(null);
@@ -49,7 +52,7 @@ const rules = ref({
   required: true,
 });
 const errorMessage = ref(null);
-
+const userStore = useUserStore();
 const loginClicked = () => {
   loginError.value = false;
   if (!email.value && !password.value) {
@@ -59,7 +62,7 @@ const loginClicked = () => {
   }
 
   let flag = false;
-  userData.map((user) => {
+  userStore.user.map((user) => {
     loginError.value = false;
     if (
       (email.value === user.email || email.value === user.username) &&
@@ -81,7 +84,7 @@ const loginClicked = () => {
     localStorage.setItem(
       "user",
       JSON.stringify(
-        userData.filter(
+        userStore.user.filter(
           (user) =>
             (user.username === email.value || user.email === email.value) &&
             user.password === password.value

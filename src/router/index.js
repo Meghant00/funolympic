@@ -3,6 +3,7 @@ import Login from "@/views/Login.vue";
 import DashboardLayout from "@/views/DashboardLayout.vue";
 import Dashboard from "@/views/Dashboard.vue";
 import Broadcast from "@/views/Broadcast.vue";
+import SignUp from "@/views/SignUp.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -11,6 +12,11 @@ const router = createRouter({
       path: "/",
       name: "Login",
       component: Login,
+    },
+    {
+      path: "/sign-up",
+      name: "Signup",
+      component: SignUp,
     },
     {
       path: "/dashboard",
