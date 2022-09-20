@@ -4,7 +4,7 @@
     <div
       class="grid grid-cols-1 gap-4 h-[93.2vh] lg:grid-cols-12 bg-[#f7f7f8] w-full"
     >
-      <div class="w-full h-full bg-background-gray-dark col-span-2"></div>
+      <side-bar />
       <router-view
         class="col-span-10 h-full overflow-y-scroll"
         :key="$route.path"
@@ -14,4 +14,5 @@
 </template>
 <script setup>
 import NavBar from "@/components/navbar/NavBar.vue";
+import SideBar from "@/components/navbar/SideBar.vue";
 </script>
