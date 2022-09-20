@@ -9,6 +9,7 @@ export const useUserStore = defineStore("userStore", {
           email: "meghant@gmail.com",
           password: "meghant",
           isAdmin: 0,
+          blocked: 0,
         },
 
         {
@@ -16,6 +17,7 @@ export const useUserStore = defineStore("userStore", {
           email: "admin@gmail.com",
           password: "admin",
           isAdmin: 1,
+          blocked: 0,
         },
 
         {
@@ -23,6 +25,7 @@ export const useUserStore = defineStore("userStore", {
           email: "normal.user@gmail.com",
           password: "user",
           isAdmin: 0,
+          blocked: 0,
         },
 
         {
@@ -30,6 +33,7 @@ export const useUserStore = defineStore("userStore", {
           email: "blocked@gmail.com",
           password: "blocked",
           isAdmin: 0,
+          blocked: 1,
         },
       ],
     };

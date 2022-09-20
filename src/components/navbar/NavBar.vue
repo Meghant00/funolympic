@@ -46,7 +46,7 @@
       >
         <Icon><UserRegular /></Icon>
         <div
-          class="absolute -left-[230px] top-full w-64 bg-white rounded shadow-md px-4 py-4"
+          class="absolute -left-[230px] top-full w-64 bg-white rounded shadow-md px-4 py-4 z-50"
           v-if="menuOpened"
         >
           <div class="flex flex-col items-start justify-start gap-4 w-full">

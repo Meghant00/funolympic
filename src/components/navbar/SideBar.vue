@@ -13,12 +13,30 @@ const renderIcon = (icon) => {
 };
 const menuOptions = ref([
   {
-    label: "Dashboard",
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            name: "Dashboard",
+          },
+        },
+        { default: () => "Dashboard" }
+      ),
     key: "dashboard",
     icon: renderIcon(Home),
   },
   {
-    label: "Users",
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            name: "User",
+          },
+        },
+        { default: () => "User" }
+      ),
     key: "users",
     icon: renderIcon(Users),
   },

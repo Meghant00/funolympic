@@ -6,7 +6,7 @@
     >
       <side-bar />
       <router-view
-        class="col-span-10 h-full overflow-y-scroll"
+        class="col-span-10 h-full overflow-y-scroll pr-4"
         :key="$route.path"
       ></router-view>
     </div>

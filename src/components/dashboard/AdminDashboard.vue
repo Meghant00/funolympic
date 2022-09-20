@@ -16,10 +16,10 @@
         </div>
       </div>
       <div
-        class="bg-white shadow rounded px-4 py-6 flex flex-row items-center justify-start gap-4 w-full text-2xl font-semibold text-fun-orange"
+        class="bg-white shadow rounded px-4 py-6 flex flex-row items-center justify-start gap-4 w-full text-2xl font-semibold text-success"
       >
         <div
-          class="rounded-full w-16 h-16 flex flex-row items-center justify-center bg-fun-orange text-white"
+          class="rounded-full w-16 h-16 flex flex-row items-center justify-center bg-success text-white"
         >
           <Icon><UserFriends /></Icon>
         </div>
