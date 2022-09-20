@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-[50px] flex flex-row items-center justify-between px-4 py-4"
+    class="w-full h-[50px] flex flex-row items-center justify-between px-4 py-4 sticky top-0 bg-white"
   >
     <div class="logo w-full flex items-center justify-start">
       <router-link :to="{ name: 'Dashboard' }">
@@ -20,17 +20,23 @@
     <div class="flex flex-row items-center justify-end gap-4 w-full">
       <div class="relative">
         <button
-          @click="notificationOpened = !notificationOpened"
+          @click="notificationClicked"
           class="text-primary transition-all duration-100 ease-linear hover:bg-black/[15%] text-lg rounded w-10 h-10 flex flex-row items-center justify-center"
         >
-          <Icon><BellRegular /></Icon>
+          <Badge :badgeClicked="notificationStore.notificationClicked" />
         </button>
         <div
           class="absolute -left-[250px] top-full w-64 bg-white rounded shadow-md px-4 py-4"
           v-if="notificationOpened"
         >
           <div class="flex flex-col items-start justify-start gap-4 w-full">
-            <span>Notifications</span>
+            <h4 class="font-semibold text-sm">Notifications</h4>
+            <p
+              v-for="notification in notificationStore.notifications"
+              :key="notification"
+            >
+              {{ notification }}
+            </p>
           </div>
         </div>
       </div>
@@ -66,12 +72,17 @@ import { Icon } from "@vicons/utils";
 import { BellRegular, UserRegular } from "@vicons/fa";
 import { NSelect } from "naive-ui";
 import { liveGameData } from "@/utils/liveGameData";
+import Badge from "@/components/reuseable/Badge.vue";
+import { useNotificationStore } from "@/stores/notificationStore.js";
+import { scheduleData } from "@/utils/scheduleData.js";
 ("NavBar");
 const menuOpened = ref(false);
 const notificationOpened = ref(false);
 const router = useRouter();
 const broadcastOptions = ref([]);
 const broadcast = ref(null);
+const notificationStore = useNotificationStore();
+
 const logoutClicked = () => {
   router.push({ name: "Login" });
   localStorage.setItem("user", JSON.stringify(null));
@@ -84,9 +95,22 @@ onMounted(() => {
       value: liveGame.id,
     });
   });
+
+  scheduleData.map((scheduledGame) => {
+    broadcastOptions.value.push({
+      label: scheduledGame.title,
+      value: scheduledGame.id,
+    });
+  });
 });
 
 const broadcastSelected = () => {
   router.push({ name: "Broadcast", params: { id: broadcast.value } });
+};
+
+const notificationClicked = () => {
+  notificationOpened.value = !notificationOpened.value;
+
+  notificationStore.notificationClicked = true;
 };
 </script>

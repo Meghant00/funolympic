@@ -8,7 +8,7 @@
         <h2 class="text-3xl font-semibold pb-4">Currently Most Watched Game</h2>
         <div class="w-full lg:h-[70vh]">
           <img
-            :src="mainImage"
+            :src="liveGameData[0].image"
             alt="main-event"
             class="h-full w-full object-fill"
           />
@@ -22,13 +22,9 @@
         :to="{ name: 'Broadcast', params: { id: `1` } }"
         class="flex flex-col items-start justify-start gap-2"
       >
-        <h2 class="text-3xl font-semibold">Men's 1000m Relay</h2>
+        <h2 class="text-3xl font-semibold">{{ liveGameData[0].title }}</h2>
         <p class="font-light">
-          Relay race, also called Relay is a track and field sport that consists
-          of a set number of stages (legs) in which four members of a team take
-          turns in running down the track. The runner finishing one leg is
-          required to pass on the next runner with a stick-like object known as
-          a “Baton”.
+          {{ liveGameData[0].description }}
         </p>
         <div class="w-full h-0.5 bg-black my-8 px-4"></div>
       </router-link>
@@ -41,13 +37,9 @@
           :to="{ name: `Broadcast`, params: { id: `2` } }"
           class="flex flex-col items-start justify-start gap-2"
         >
-          <h3 class="text-2xl font-semibold">Men's Shot put</h3>
+          <h3 class="text-2xl font-semibold">{{ liveGameData[1].title }}</h3>
           <p class="font-light">
-            Shot put is an athletics sport where people try to "put" a heavy
-            weighted ball as far as they can. They are not allowed to throw it,
-            but instead they push the ball out into the air. They "put" the ball
-            by holding it at their neck and pushing it through the air. The shot
-            put has been part of the Olympics since 1896.
+            {{ liveGameData[1].description }}
           </p>
         </router-link>
       </div>
@@ -56,6 +48,6 @@
   </div>
 </template>
 <script setup>
-import mainImage from "@/assets/img/dashboard-main.jpg";
 import Schedule from "@/components/schedule/Schedule.vue";
+import { liveGameData } from "@/utils/liveGameData";
 </script>

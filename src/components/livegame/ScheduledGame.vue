@@ -10,20 +10,15 @@
         class="w-full h-full object-cover"
       />
     </div>
-    <div class="flex flex-row items-center justify-start gap-2">
-      <div class="w-2 h-2 rounded-full bg-red-600"></div>
-      <span class="text-red-600 text-sm font-semibold uppercase">Live</span>
-    </div>
     <h3 class="text-xl font-semibold">{{ currentLiveGame.title }}</h3>
-
     <div
       class="flex flex-col items-start justify-start lg:flex-row lg:justify-between w-full gap-4"
     >
       <div
         class="flex flex-col items-start justify-start gap-6 w-full md:flex-row md:items-center lg:w-1/2"
       >
-        <div class="text-gray-800">7,000 Watching Now</div>
-        <div class="text-gray-800">Started on {{ startDate }}</div>
+        <div class="text-gray-800">7,000 Waiting to watch</div>
+        <div class="text-gray-800">Will Started on {{ startDate }}</div>
       </div>
       <div
         class="flex flex-row items-start justify-end gap-6 w-full text-lg lg:w-1/2 lg:items-center"
@@ -45,6 +40,12 @@
         <button>
           <Icon><Share /></Icon>
         </button>
+        <button
+          @click="addNotification"
+          :class="{ 'text-primary': notificationStatus }"
+        >
+          <Icon><BellRegular /></Icon>
+        </button>
       </div>
     </div>
     <div class="flex flex-col items-start justify-start gap-4">
@@ -65,11 +66,12 @@
 </template>
 <script setup>
 import { Icon } from "@vicons/utils";
-import { ThumbsUp, ThumbsDown, Share } from "@vicons/fa";
+import { ThumbsUp, ThumbsDown, Share, BellRegular } from "@vicons/fa";
 import { onMounted, ref } from "vue";
 import moment from "moment";
-import { liveGameData } from "@/utils/liveGameData";
 import { useRoute } from "vue-router";
+import { scheduleData } from "@/utils/scheduleData";
+import { useNotificationStore } from "@/stores/notificationStore";
 const like = ref(false);
 
 const dislike = ref(false);
@@ -85,12 +87,18 @@ const route = useRoute();
 
 const currentLiveGame = ref(null);
 
+const notificationStore = useNotificationStore();
+
+const notificationStatus = ref(false);
+
 const loading = ref(true);
 onMounted(() => {
-  startDate.value = moment().format("DD/MM/YYYY [at] HH:mm");
+  const date = new Date();
+  date.setHours(date.getHours() + 2);
+  startDate.value = moment(date).format("DD/MM/YYYY [at] HH:mm");
 
-  currentLiveGame.value = liveGameData.filter(
-    (liveGame) => liveGame.id === Number(route.params.id)
+  currentLiveGame.value = scheduleData.filter(
+    (scheduledGame) => scheduledGame.id === Number(route.params.id)
   )[0];
 
   loading.value = false;
@@ -120,6 +128,17 @@ const dislikeClicked = () => {
   }
   dislike.value = !dislike.value;
   like.value = false;
+};
+
+const addNotification = () => {
+  if (!notificationStatus.value) {
+    const notification = `You set a reminder for ${currentLiveGame.value.title}`;
+
+    notificationStore.addNotification(notification);
+    notificationStore.notificationClicked = false;
+  }
+
+  notificationStatus.value = !notificationStatus.value;
 };
 </script>
 

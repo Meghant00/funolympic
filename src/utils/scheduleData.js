@@ -1,6 +1,6 @@
 export const scheduleData = [
   {
-    id: 3,
+    id: 9,
     date: "15/09/2022",
     time: "5:00",
     image: "/src/assets/img/cycling/men-cycling.jpg",
@@ -10,7 +10,7 @@ export const scheduleData = [
       "Road races are team-oriented, mass-start events which typically feature a field of 150-180 riders. Teams are generally made up of eight to 10 riders, however at the Olympic Games, team sizes are limited to a maximum of five for men and four for women.",
   },
   {
-    id: 4,
+    id: 10,
     date: "15/09/2022",
     time: "8:00",
     image: "/src/assets/img/cycling/women-cycling.jpg",
@@ -21,7 +21,7 @@ export const scheduleData = [
       "Road races are team-oriented, mass-start events which typically feature a field of 150-180 riders. Teams are generally made up of eight to 10 riders, however at the Olympic Games, team sizes are limited to a maximum of five for men and four for women.",
   },
   {
-    id: 5,
+    id: 11,
     date: "15/09/2022",
     time: "12:00",
     image: "/src/assets/img/cycling/women-bmx.jpg",
@@ -31,7 +31,7 @@ export const scheduleData = [
       "In BMX Freestyle, riders perform routines consisting of sequences of tricks carried out on flat ground, in the streets, on dirt jumps, a halfpipe and/or on constructed ramps. In competition, riders are judged on the quality of their performance.",
   },
   {
-    id: 6,
+    id: 12,
     date: "15/09/2022",
     time: "12:00",
     image: "/src/assets/img/cycling/men-bmx.jpg",
@@ -41,7 +41,7 @@ export const scheduleData = [
       "In BMX Freestyle, riders perform routines consisting of sequences of tricks carried out on flat ground, in the streets, on dirt jumps, a halfpipe and/or on constructed ramps. In competition, riders are judged on the quality of their performance.",
   },
   {
-    id: 7,
+    id: 13,
     date: "16/09/2022",
     time: "12:00",
     image: "/src/assets/img/badminton/mens-single.jpg",
@@ -51,7 +51,7 @@ export const scheduleData = [
       "A singles match in badminton features one player on each side of the net. You'll get more of a cardiovascular workout in a singles game than in a game of doubles, because you are responsible for the entire side of your court. ",
   },
   {
-    id: 8,
+    id: 14,
     date: "16/09/2022",
     time: "12:00",
     image: "/src/assets/img/badminton/womens-single.jpg",
@@ -61,7 +61,7 @@ export const scheduleData = [
       "A singles match in badminton features one player on each side of the net. You'll get more of a cardiovascular workout in a singles game than in a game of doubles, because you are responsible for the entire side of your court. ",
   },
   {
-    id: 9,
+    id: 15,
     date: "16/09/2022",
     time: "12:00",
     image: "/src/assets/img/badminton/mens-double.jpg",
@@ -71,7 +71,7 @@ export const scheduleData = [
       "A game of badminton between four players, two on each side, played on the larger-sized court.",
   },
   {
-    id: 10,
+    id: 16,
     date: "16/09/2022",
     time: "12:00",
     image: "/src/assets/img/badminton/womens-double.jpg",
