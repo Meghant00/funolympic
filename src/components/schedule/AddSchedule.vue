@@ -37,7 +37,6 @@ import { NForm, NInput, NFormItem } from "naive-ui";
 import { onMounted, ref } from "vue";
 import PrimaryButton from "@/components/reuseable/PrimaryButton.vue";
 import { scheduleData } from "@/utils/scheduleData";
-import moment from "moment";
 const props = defineProps(["id"]);
 const emits = defineEmits(["addClicked", "editClicked"]);
 
