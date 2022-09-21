@@ -41,7 +41,16 @@ const menuOptions = ref([
     icon: renderIcon(Users),
   },
   {
-    label: "Schedule",
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            name: "Schedule",
+          },
+        },
+        { default: () => "Schedule" }
+      ),
     key: "schedule",
     icon: renderIcon(CalendarAlt),
   },

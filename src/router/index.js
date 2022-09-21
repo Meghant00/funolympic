@@ -5,6 +5,7 @@ import Dashboard from "@/views/Dashboard.vue";
 import Broadcast from "@/views/Broadcast.vue";
 import SignUp from "@/views/SignUp.vue";
 import User from "@/views/User.vue";
+import Schedule from "@/views/Schedule.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -27,6 +28,8 @@ const router = createRouter({
         { path: "/dashboard", name: "Dashboard", component: Dashboard },
         { path: "/broadcast/:id", name: "Broadcast", component: Broadcast },
         { path: "/user", name: "User", component: User },
+
+        { path: "/schedule", name: "Schedule", component: Schedule },
       ],
     },
   ],

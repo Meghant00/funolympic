@@ -72,6 +72,7 @@ import moment from "moment";
 import { useRoute } from "vue-router";
 import { scheduleData } from "@/utils/scheduleData";
 import { useNotificationStore } from "@/stores/notificationStore";
+import { useMessage } from "naive-ui";
 const like = ref(false);
 
 const dislike = ref(false);
@@ -90,6 +91,8 @@ const currentLiveGame = ref(null);
 const notificationStore = useNotificationStore();
 
 const notificationStatus = ref(false);
+
+const message = useMessage();
 
 const loading = ref(true);
 onMounted(() => {
@@ -136,6 +139,8 @@ const addNotification = () => {
 
     notificationStore.addNotification(notification);
     notificationStore.notificationClicked = false;
+
+    message.success("Notification Added");
   }
 
   notificationStatus.value = !notificationStatus.value;

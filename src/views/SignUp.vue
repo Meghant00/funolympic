@@ -37,6 +37,9 @@
           Signup
         </button>
       </div>
+      <router-link :to="{ name: 'Signup' }" class="text-blue-600"
+        >Already Have an account? <span>Log in</span></router-link
+      >
     </form>
   </div>
 </template>
@@ -46,6 +49,7 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import logo from "@/assets/img/logo/fun-olympic.png";
 import { useUserStore } from "@/stores/userStore.js";
+import { useMessage } from "naive-ui";
 ("SignUp");
 
 const router = useRouter();
@@ -60,6 +64,7 @@ const rules = ref({
 const errorMessage = ref(null);
 
 const userStore = useUserStore();
+const message = useMessage();
 
 const signupClicked = () => {
   signupError.value = false;
@@ -93,10 +98,10 @@ const signupClicked = () => {
       password: password.value,
       email: email.value,
       isAdmin: 0,
+      blocked: 0,
     };
     userStore.addUser(user);
-
-    console.log(userStore.user);
+    message.success("User Added Successfully");
     router.push({ name: "Login" });
   }
 };

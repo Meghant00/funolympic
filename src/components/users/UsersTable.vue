@@ -12,7 +12,7 @@
         {{ currentUser.username }} ?
       </div>
       <div class="flex flex-row w-full items-center justify-end gap-4">
-        <primary-button name="Yes" @click="yesClicked" />
+        <primary-button name="Yes" theme="danger" @click="yesClicked" />
         <primary-button name="No" @click="showModal = false" />
       </div>
     </div>
