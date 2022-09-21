@@ -1,20 +1,22 @@
 <template>
-  <div class="grid grid-cols-1 gap-4 py-4 px-4 w-full lg:grid-cols-3">
+  <div class="grid grid-cols-1 gap-4 py-4 px-4 w-full lg:grid-cols-5">
     <div
-      class="w-full lg:col-span-2 flex flex-col items-start justify-start gap-2"
+      class="w-full lg:col-span-3 flex flex-col items-start justify-start gap-2"
       v-if="route.params.id < 9"
     >
       <live-game />
       <comments class="row-start-3 lg:row-start-1" />
     </div>
     <div
-      class="w-full lg:col-span-2 flex flex-col items-start justify-start gap-2"
+      class="w-full lg:col-span-3 flex flex-col items-start justify-start gap-2"
       v-else
     >
       <scheduled-game />
       <comments class="row-start-3 lg:row-start-1" />
     </div>
-    <div class="w-full h-full flex flex-col items-start justify-start gap-4">
+    <div
+      class="w-full h-full flex flex-col items-start justify-start gap-4 lg:col-span-2"
+    >
       <h3 class="text-xl font-semibold">Current Live Games</h3>
       <router-link
         class="flex flex-col items-start justify-start lg:flex-row gap-x-4 gap-y-2 w-full"

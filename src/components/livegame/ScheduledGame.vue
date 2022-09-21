@@ -17,8 +17,12 @@
       <div
         class="flex flex-col items-start justify-start gap-6 w-full md:flex-row md:items-center lg:w-1/2"
       >
-        <div class="text-gray-800">7,000 Waiting to watch</div>
-        <div class="text-gray-800">Will Started on {{ startDate }}</div>
+        <div class="text-gray-800 text-xs font-semibold">
+          7,000 Waiting to watch
+        </div>
+        <div class="text-gray-800 text-xs font-semibold">
+          Will Started on {{ startDate }}
+        </div>
       </div>
       <div
         class="flex flex-row items-start justify-end gap-6 w-full text-lg lg:w-1/2 lg:items-center"
