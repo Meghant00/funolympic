@@ -4,6 +4,7 @@
     :class="{
       'bg-primary hover:bg-primary-hover': theme === 'primary',
       'bg-danger hover:bg-red-800': theme === 'danger',
+      'bg-success hover:bg-green-800': theme === 'success',
     }"
   >
     {{ props.name }}

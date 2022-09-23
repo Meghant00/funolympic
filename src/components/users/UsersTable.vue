@@ -50,6 +50,7 @@ const columns = ref([
             showModal.value = true;
           },
           name: row.blocked ? "Unblock" : "Block",
+          theme: row.blocked ? "success" : "danger",
         },
         { default: () => "Block" }
       );
