@@ -1,6 +1,6 @@
 <template>
   <div class="w-full flex flex-row items-center justify-end mb-4">
-    <primary-button name="Add Schedule" @click="addModal = true" />
+    <primary-button name="Add Video" @click="addModal = true" />
   </div>
   <n-data-table :columns="columns" :data="data" />
   <n-modal
@@ -27,27 +27,27 @@
     closable
     class="w-full md:w-1/2 lg:w-1/4 bg-white px-4 py-4"
   >
-    <add-schedule @addClicked="addClicked" />
+    <add-video @addClicked="addClicked" />
   </n-modal>
   <n-modal
     v-model:show="editModal"
     closable
     class="w-full md:w-1/2 lg:w-1/4 bg-white px-4 py-4"
   >
-    <add-schedule @editClicked="editClicked" :id="currentSchedule.id" />
+    <add-video @editClicked="editClicked" :id="currentSchedule.id" />
   </n-modal>
 </template>
 <script setup>
 import { NDataTable, NModal, useMessage } from "naive-ui";
 import { h, ref } from "vue";
 import PrimaryButton from "@/components/reuseable/PrimaryButton.vue";
-import { scheduleData } from "@/utils/scheduleData";
 import ScheduleActions from "@/components/schedule/ScheduleActions.vue";
-import AddSchedule from "./AddSchedule.vue";
+import AddVideo from "./AddVideo.vue";
 
 import moment from "moment";
+import { liveGameData } from "@/utils/liveGameData";
 
-const data = ref(scheduleData);
+const data = ref(liveGameData);
 
 const showModal = ref(false);
 const currentSchedule = ref(null);
@@ -58,18 +58,22 @@ const columns = ref([
   {
     key: "title",
     title: "Title",
+    width: 100,
   },
   {
-    key: "date",
-    title: "Date",
+    key: "description",
+    title: "Description",
+    width: 100,
   },
   {
-    key: "time",
-    title: "Time",
+    key: "video",
+    title: "Video Link",
+    width: 200,
   },
   {
     key: "action",
     title: "Action",
+    width: 50,
     render(row) {
       return h(
         ScheduleActions,
@@ -101,19 +105,17 @@ const yesClicked = () => {
 
   showModal.value = false;
 
-  message.success("Schedule Deleted Successfully");
+  message.success("Video Deleted Successfully");
 };
 
 const addClicked = (schedule) => {
   try {
     schedule.id = data.value[data.value.length - 1].id + 1;
-    schedule.date = moment(schedule.date).format("DD/MM/YYYY");
-    schedule.time = moment(schedule.time).format("HH:mm");
     data.value.push(schedule);
     addModal.value = false;
-    message.success("Schedule Added Successfully");
+    message.success("Video Added Successfully");
   } catch {
-    message.error("Schedule Not Added ");
+    message.error("Video Not Added ");
   }
 };
 
@@ -121,12 +123,10 @@ const editClicked = (schedule) => {
   data.value.map((scheduleData) => {
     if (scheduleData.id === schedule.id) {
       scheduleData = schedule;
-      schedule.date = moment(schedule.date).format("DD/MM/YYYY");
-      schedule.time = moment(schedule.time).format("HH:mm");
     }
   });
   editModal.value = false;
 
-  message.success("Schedule Updated Successfully");
+  message.success("Video Updated Successfully");
 };
 </script>

@@ -41,7 +41,8 @@ const chartData = ref({
   datasets: [
     {
       label: "Number of Unique Logins",
-      backgroundColor: "#000",
+      backgroundColor: "#006da3",
+      borderColor: "#0085c8",
       data: [
         100, 500, 750, 800, 900, 1200, 5000, 5200, 6000, 8000, 9000, 10015,
         10050,

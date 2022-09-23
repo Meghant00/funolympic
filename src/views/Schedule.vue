@@ -1,5 +1,8 @@
 <template>
-  <div class="py-4" :class="{ 'bg-background-gray-dark': !user.isAdmin }">
+  <div
+    class="py-4"
+    :class="{ 'bg-background-gray-dark': !user.isAdmin, 'pr-4': user.isAdmin }"
+  >
     <h3 class="text-gray-700 font-semibold text-xl pb-4" v-if="user.isAdmin">
       Schedule
     </h3>

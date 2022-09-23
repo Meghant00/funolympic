@@ -8,6 +8,7 @@ import User from "@/views/User.vue";
 import Schedule from "@/views/Schedule.vue";
 import Results from "@/views/Results.vue";
 import MedalDistribution from "@/views/MedalDistribution.vue";
+import LiveVideo from "@/views/LiveVideo.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -40,6 +41,7 @@ const router = createRouter({
           name: "MedalDistribution",
           component: MedalDistribution,
         },
+        { path: "/live-video", name: "LiveVideo", component: LiveVideo },
       ],
     },
   ],

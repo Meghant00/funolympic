@@ -57,7 +57,7 @@
     </div>
     <div class="py-4 flex flex-col items-start justify-start gap-4">
       <h3 class="text-xl font-semibold text-gray-700">User Growth</h3>
-      <div class="bg-white w-4/5 mx-auto shadow rounded px-4 py-6">
+      <div class="bg-white w-[90%] mx-auto shadow rounded px-4 py-6">
         <user-chart />
       </div>
     </div>

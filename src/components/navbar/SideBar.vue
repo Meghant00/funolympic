@@ -12,7 +12,7 @@
 import { NIcon, NMenu } from "naive-ui";
 import { h, ref } from "vue";
 import { RouterLink } from "vue-router";
-import { Home, Users, CalendarAlt } from "@vicons/fa";
+import { Home, Users, CalendarAlt, Video } from "@vicons/fa";
 const user = ref(JSON.parse(localStorage.getItem("user")));
 const renderIcon = (icon) => {
   return () => h(NIcon, null, { default: () => h(icon) });
@@ -59,6 +59,20 @@ const menuOptions = ref([
       ),
     key: "schedule",
     icon: renderIcon(CalendarAlt),
+  },
+  {
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            name: "LiveVideo",
+          },
+        },
+        { default: () => "Live Videos" }
+      ),
+    key: "live-video",
+    icon: renderIcon(Video),
   },
 ]);
 const normalMenuOptions = ref([
