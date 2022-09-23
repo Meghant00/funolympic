@@ -1,40 +1,43 @@
 <template>
   <div
-    class="w-1/4 flex flex-col items-center justify-center mx-auto py-8 max-h-screen bg-white"
+    class="w-full flex flex-col items-center justify-center h-screen gradient relative overflow-hidden"
   >
-    <div class="flex flex-row items-center justify-between w-full">
-      <img :src="logo" alt="logo" class="w-24 h-24" />
-      <h2 class="text-3xl text-primary font-medium">Log in to FunOlympic</h2>
-    </div>
-    <form class="py-4 w-full flex flex-col items-start gap-4">
-      <text-input
-        v-model="email"
-        label="Username or Email"
-        type="text"
-        :rules="rules"
-      />
-      <text-input
-        v-model="password"
-        label="Password"
-        type="password"
-        :rules="rules"
-      />
-      <p class="text-red-800 italic" v-if="loginError">
-        {{ errorMessage }}
-      </p>
-      <router-link to="" class="text-blue-600">Forget Password?</router-link>
-      <div class="w-full flex flex-row items-center justify-center">
-        <button
-          class="bg-primary rounded text-white text-xl font-semibold w-full py-2 transition-all duration-150 ease-linear hover:bg-primary-hover"
-          @click.prevent="loginClicked"
-        >
-          Login
-        </button>
+    <div class="lg:w-[30%] px-6 py-4 bg-white rounded-md">
+      <div class="flex flex-row items-center justify-between w-full">
+        <img :src="logo" alt="logo" class="w-24 h-24" />
+        <h2 class="text-3xl text-primary font-medium">Log in to FunOlympic</h2>
       </div>
-      <router-link :to="{ name: 'Signup' }" class="text-blue-600"
-        >Need an account? <span>Sign Up</span></router-link
+      <form
+        class="py-4 w-full flex flex-col items-start gap-4"
+        @submit.prevent=""
       >
-    </form>
+        <text-input v-model="email" label="Email" type="text" :rules="rules" />
+        <text-input
+          v-model="password"
+          label="Password"
+          type="password"
+          :rules="rules"
+        />
+        <p class="text-red-800 italic" v-if="loginError">
+          {{ errorMessage }}
+        </p>
+        <router-link to="" class="text-blue-600">Forgot Password?</router-link>
+        <div class="w-full flex flex-row items-center justify-center">
+          <button
+            class="bg-primary rounded text-white text-xl font-semibold w-full py-2 transition-all duration-150 ease-linear hover:bg-primary-hover"
+            @click.prevent="loginClicked"
+          >
+            Login
+          </button>
+        </div>
+        <router-link :to="{ name: 'Signup' }" class="text-blue-600"
+          >Need an account? <span>Sign Up</span></router-link
+        >
+      </form>
+    </div>
+    <div class="absolute -z-10 -right-32">
+      <img :src="hand" alt="hand" class="object-cover" />
+    </div>
   </div>
 </template>
 <script setup>
@@ -43,6 +46,7 @@ import TextInput from "@/components/reuseable/TextInput.vue";
 import { ref } from "vue";
 import logo from "@/assets/img/logo/fun-olympic.png";
 import { useUserStore } from "@/stores/userStore.js";
+import hand from "@/assets/img/bg.jpg";
 ("Login");
 const router = useRouter();
 const email = ref(null);
@@ -53,6 +57,7 @@ const rules = ref({
 });
 const errorMessage = ref(null);
 const userStore = useUserStore();
+
 const loginClicked = () => {
   loginError.value = false;
   if (!email.value && !password.value) {
@@ -95,3 +100,4 @@ const loginClicked = () => {
   }
 };
 </script>
+<style scoped></style>

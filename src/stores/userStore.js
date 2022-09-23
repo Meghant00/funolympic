@@ -42,5 +42,13 @@ export const useUserStore = defineStore("userStore", {
     addUser(user) {
       this.user.push(user);
     },
+    blockUser(username) {
+      const user = this.user.filter((user) => user.username == username)[0];
+      user.blocked = 1;
+    },
+    unBlockUser(username) {
+      const user = this.user.filter((user) => user.username == username)[0];
+      user.blocked = 0;
+    },
   },
 });

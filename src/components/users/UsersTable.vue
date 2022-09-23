@@ -76,10 +76,12 @@ const yesClicked = () => {
 const blockUser = (username) => {
   const user = data.value.filter((user) => user.username == username)[0];
   user.blocked = 1;
+  userStore.blockUser(username);
 };
 
 const unblockUser = (username) => {
   const user = data.value.filter((user) => user.username == username)[0];
   user.blocked = 0;
+  userStore.unBlockUser(username);
 };
 </script>

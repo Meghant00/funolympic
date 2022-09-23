@@ -7,7 +7,7 @@
         <img :src="logo" alt="logo" class="w-full h-12 object-contain" />
       </router-link>
 
-      <div v-if="!isAdmin">
+      <div v-if="!getUser.isAdmin && !getUser.blocked">
         <nav-links />
       </div>
     </div>
@@ -68,14 +68,13 @@ import Badge from "@/components/reuseable/Badge.vue";
 import { useNotificationStore } from "@/stores/notificationStore.js";
 import { scheduleData } from "@/utils/scheduleData.js";
 import NavLinks from "./NavLinks.vue";
+import { computed } from "vue";
 ("NavBar");
 const menuOpened = ref(false);
 const notificationOpened = ref(false);
 const router = useRouter();
 const broadcastOptions = ref([]);
-const broadcast = ref(null);
 const notificationStore = useNotificationStore();
-const isAdmin = ref(false);
 const logoutClicked = () => {
   router.push({ name: "Login" });
   localStorage.setItem("user", JSON.stringify(null));
@@ -95,17 +94,15 @@ onMounted(() => {
       value: scheduledGame.id,
     });
   });
-
-  isAdmin.value = JSON.parse(localStorage.getItem("user")).isAdmin;
 });
-
-const broadcastSelected = () => {
-  router.push({ name: "Broadcast", params: { id: broadcast.value } });
-};
 
 const notificationClicked = () => {
   notificationOpened.value = !notificationOpened.value;
 
   notificationStore.notificationClicked = true;
 };
+
+const getUser = computed(() => {
+  return JSON.parse(localStorage.getItem("user"));
+});
 </script>

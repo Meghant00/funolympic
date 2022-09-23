@@ -6,7 +6,7 @@
     >
       <div class="w-full">
         <h2 class="text-3xl font-semibold pb-4">Currently Most Watched Game</h2>
-        <div class="w-full lg:h-[70vh]">
+        <div class="w-full lg:h-[76vh]">
           <img
             :src="liveGameData[0].image"
             alt="main-event"
