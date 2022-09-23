@@ -1,41 +1,54 @@
 <template>
-  <LineChart
+  <Line
     :chart-options="chartOptions"
     :chart-data="chartData"
     :chart-id="chartId"
     :dataset-id-key="datasetIdKey"
-    :width="width"
-    :height="height"
+    :height="200"
   />
 </template>
 <script setup>
-import { LineChart } from "vue-chartjs";
+import { Line } from "vue-chartjs";
 import {
   Chart as ChartJS,
   Title,
   Tooltip,
   Legend,
-  BarElement,
-  CategoryScale,
+  LineElement,
   LinearScale,
+  PointElement,
+  CategoryScale,
 } from "chart.js";
 import { ref } from "vue";
 ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale
+  LineElement,
+  LinearScale,
+  PointElement,
+  CategoryScale
 );
+
+const xAxis = ref([]);
+for (let i = 1; i <= 13; i++) {
+  xAxis.value.push(`Day ${i}`);
+}
 
 const chartOptions = ref({ responsive: true });
 const chartData = ref({
-  labels: ["January", "February", "March"],
-  datasets: [{ data: [40, 20, 12] }],
+  labels: xAxis.value,
+  datasets: [
+    {
+      label: "Number of Unique Logins",
+      backgroundColor: "#000",
+      data: [
+        100, 500, 750, 800, 900, 1200, 5000, 5200, 6000, 8000, 9000, 10015,
+        10050,
+      ],
+    },
+  ],
 });
 const chartId = ref("line-chart");
 const datasetIdKey = ref("label");
-const width = ref(400);
-const height = ref(400);
 </script>
