@@ -1,34 +1,65 @@
 <template>
   <router-link
     :to="{ name: 'Broadcast', params: { id: props.id } }"
-    class="flex flex-col items-start justify-start gap-4 w-full transition-all duration-150 ease-linear group py-8 px-4 shadow-none lg:flex-row lg:w-4/5 hover:bg-background-gray hover:shadow-md"
+    class="flex flex-col items-start justify-start gap-4 w-full transition-all duration-150 ease-linear group py-8 px-4 shadow-none lg:w-4/5 hover:bg-background-gray hover:shadow-md"
   >
-    <div class="text-xl">{{ props.time }}</div>
-    <div class="w-64 h-32 md:w-full md:h-full lg:w-64 lg:h-32 overflow-hidden">
-      <img
-        :src="props.image"
-        :alt="props.title"
-        class="h-32 w-64 md:w-full md:h-full object-fill transform transition-all duration-150 ease-linear group-hover:scale-150"
-      />
-    </div>
     <div
       class="flex flex-col items-start justify-start gap-4 w-full lg:w-[75%]"
     >
       <h4 class="text-xl">{{ props.title }}</h4>
-      <p>
-        {{ props.description }}
-      </p>
+    </div>
+    <div class="flex flex-row w-full items-center justify-between">
+      <div class="flex flex-row items-center gap-4 justify-start">
+        <div class="flex flex-row items-center gap-4 justify-start">
+          <div class="w-16 h-16">
+            <img
+              :src="country.image"
+              alt="flag"
+              class="w-full h-full object-contain"
+            />
+          </div>
+          <h6 class="text-gray-700 font-semibold">
+            {{ country.name }}
+          </h6>
+        </div>
+
+        <span class="font-bold text-xl text-gray-700">VS</span>
+        <div class="flex flex-row items-center gap-4 justify-start w-full">
+          <div class="w-16 h-16">
+            <img
+              :src="nextCountry.image"
+              alt="flag"
+              class="w-full h-full object-contain"
+            />
+          </div>
+          <h6 class="text-gray-700 font-semibold">
+            {{ nextCountry.name }}
+          </h6>
+        </div>
+      </div>
+      <div class="text-xl">{{ props.time }}</div>
     </div>
   </router-link>
 </template>
 <script setup>
-const props = defineProps([
-  "title",
-  "date",
-  "description",
-  "image",
-  "time",
-  "link",
-  "id",
-]);
+import { countryData } from "@/utils/countryData";
+import { ref } from "vue";
+const props = defineProps(["title", "date", "time", "link", "id"]);
+const country = ref(null);
+const nextCountry = ref(null);
+
+const getCountry = () => {
+  const id = rng();
+  return countryData.filter((country) => country.id === id)[0];
+};
+
+const getNextCountry = () => {
+  const id = rng();
+  return countryData.filter((country) => country.id === id)[0];
+};
+
+const rng = () => Math.floor(Math.random() * (8 - 1) + 1);
+
+country.value = getCountry();
+nextCountry.value = getNextCountry();
 </script>

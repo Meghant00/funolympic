@@ -6,7 +6,7 @@
     >
       <side-bar v-if="user.isAdmin" />
       <router-view
-        class="h-full overflow-y-scroll pr-4"
+        class="h-full overflow-y-scroll"
         :class="{ 'col-span-10 ': user.isAdmin, 'col-span-12': !user.isAdmin }"
         :key="$route.path"
       ></router-view>
