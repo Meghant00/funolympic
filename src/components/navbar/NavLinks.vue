@@ -7,6 +7,7 @@
       :text="link.text"
     />
     <drop-down />
+    <nav-link name="Results" text="Results" />
   </div>
 </template>
 <script setup>

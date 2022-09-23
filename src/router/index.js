@@ -6,6 +6,8 @@ import Broadcast from "@/views/Broadcast.vue";
 import SignUp from "@/views/SignUp.vue";
 import User from "@/views/User.vue";
 import Schedule from "@/views/Schedule.vue";
+import Results from "@/views/Results.vue";
+import MedalDistribution from "@/views/MedalDistribution.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -30,6 +32,14 @@ const router = createRouter({
         { path: "/user", name: "User", component: User },
 
         { path: "/schedule", name: "Schedule", component: Schedule },
+
+        { path: "/results", name: "Results", component: Results },
+
+        {
+          path: "/medal-distribution",
+          name: "MedalDistribution",
+          component: MedalDistribution,
+        },
       ],
     },
   ],
