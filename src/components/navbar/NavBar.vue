@@ -2,20 +2,14 @@
   <div
     class="w-full h-[50px] flex flex-row items-center justify-between px-4 py-4 sticky top-0 bg-white"
   >
-    <div class="logo w-full flex items-center justify-start">
+    <div class="logo w-full flex flex-row items-center justify-start gap-16">
       <router-link :to="{ name: 'Dashboard' }">
         <img :src="logo" alt="logo" class="w-full h-12 object-contain" />
       </router-link>
-    </div>
-    <div class="w-full">
-      <n-select
-        placeholder="Select Broadcast"
-        v-model:value="broadcast"
-        :options="broadcastOptions"
-        clearable
-        filterable
-        @update:value="broadcastSelected"
-      />
+
+      <div v-if="!isAdmin">
+        <nav-links />
+      </div>
     </div>
     <div class="flex flex-row items-center justify-end gap-4 w-full">
       <div class="relative">
@@ -50,9 +44,8 @@
           v-if="menuOpened"
         >
           <div class="flex flex-col items-start justify-start gap-4 w-full">
-            <span>Other Options</span>
             <button
-              class="bg-primary rounded text-white text-lg w-full py-2 px-4 transition-all duration-150 ease-linear hover:bg-primary-hover"
+              class="bg-primary rounded text-white w-full py-2 px-4 transition-all duration-150 ease-linear hover:bg-primary-hover"
               @click="logoutClicked"
             >
               Logout
@@ -69,12 +62,12 @@ import logo from "@/assets/img/logo/fun-olympic.png";
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import { Icon } from "@vicons/utils";
-import { BellRegular, UserRegular } from "@vicons/fa";
-import { NSelect } from "naive-ui";
+import { UserRegular } from "@vicons/fa";
 import { liveGameData } from "@/utils/liveGameData";
 import Badge from "@/components/reuseable/Badge.vue";
 import { useNotificationStore } from "@/stores/notificationStore.js";
 import { scheduleData } from "@/utils/scheduleData.js";
+import NavLinks from "./NavLinks.vue";
 ("NavBar");
 const menuOpened = ref(false);
 const notificationOpened = ref(false);
@@ -82,7 +75,7 @@ const router = useRouter();
 const broadcastOptions = ref([]);
 const broadcast = ref(null);
 const notificationStore = useNotificationStore();
-
+const isAdmin = ref(false);
 const logoutClicked = () => {
   router.push({ name: "Login" });
   localStorage.setItem("user", JSON.stringify(null));
@@ -102,6 +95,8 @@ onMounted(() => {
       value: scheduledGame.id,
     });
   });
+
+  isAdmin.value = JSON.parse(localStorage.getItem("user")).isAdmin;
 });
 
 const broadcastSelected = () => {

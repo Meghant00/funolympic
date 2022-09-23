@@ -37,7 +37,7 @@
           Signup
         </button>
       </div>
-      <router-link :to="{ name: 'Signup' }" class="text-blue-600"
+      <router-link :to="{ name: 'Login' }" class="text-blue-600"
         >Already Have an account? <span>Log in</span></router-link
       >
     </form>

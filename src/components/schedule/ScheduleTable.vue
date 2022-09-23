@@ -103,6 +103,7 @@ const yesClicked = () => {
 
 const addClicked = (schedule) => {
   try {
+    schedule.id = data.value[data.value.length - 1].id + 1;
     data.value.push(schedule);
     addModal.value = false;
     message.success("Schedule Added Successfully");

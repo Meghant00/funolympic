@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full lg:col-span-2">
+  <div class="w-full">
     <div
       class="flex flex-col items-start justify-start gap-8 w-[90%] mx-auto lg:col-span-2"
     >

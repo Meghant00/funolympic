@@ -42,9 +42,13 @@
         </div>
       </div>
     </div>
+    <!-- <div class="py-4">
+      <UserChart />
+    </div> -->
   </div>
 </template>
 <script setup>
 import { Icon } from "@vicons/utils";
 import { Users, UsersSlash, UserFriends } from "@vicons/fa";
+// import UserChart from "@/components/users/UserChart.vue";
 </script>
