@@ -30,6 +30,30 @@
             Login
           </button>
         </div>
+        <div class="w-full flex flex-row items-center justify-start">
+          <span class="w-full h-0.5 bg-gray-400"></span>
+          <span
+            class="text-gray-600 border-2 border-gray-600 rounded px-2 py-1 font-semibold"
+            >OR</span
+          >
+          <span class="w-full h-0.5 bg-gray-400"></span>
+        </div>
+        <div class="flex flex-row items-center justify-center gap-4 w-full">
+          <a
+            href="https://google.com"
+            target="_blank"
+            class="border border-gray-500 w-12 h-12 flex flex-row items-center justify-center rounded shadow"
+          >
+            <img :src="googleLogo" alt="logo" />
+          </a>
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            class="border border-gray-500 w-12 h-12 flex flex-row items-center justify-center rounded shadow"
+          >
+            <img :src="facebookLogo" alt="logo" class="w-[36px] h-[36px]" />
+          </a>
+        </div>
         <router-link :to="{ name: 'Signup' }" class="text-blue-600"
           >Need an account? <span>Sign Up</span></router-link
         >
@@ -47,6 +71,8 @@ import { ref } from "vue";
 import logo from "@/assets/img/logo/fun-olympic.png";
 import { useUserStore } from "@/stores/userStore.js";
 import hand from "@/assets/img/bg.jpg";
+import googleLogo from "@/assets/img/google-logo.svg";
+import facebookLogo from "@/assets/img/facebook-logo.svg";
 ("Login");
 const router = useRouter();
 const email = ref(null);
