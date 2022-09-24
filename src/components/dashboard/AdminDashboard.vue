@@ -56,6 +56,12 @@
       </div>
     </div>
     <div class="py-4 flex flex-col items-start justify-start gap-4">
+      <h3 class="text-xl font-semibold text-gray-700">Likes on Live Games</h3>
+      <div class="bg-white w-[90%] mx-auto shadow rounded px-4 py-6">
+        <game-like-distribution />
+      </div>
+    </div>
+    <div class="py-4 flex flex-col items-start justify-start gap-4">
       <h3 class="text-xl font-semibold text-gray-700">User Growth</h3>
       <div class="bg-white w-[90%] mx-auto shadow rounded px-4 py-6">
         <user-chart />
@@ -65,6 +71,7 @@
 </template>
 <script setup>
 import UserStatusChart from "@/components/users/UserStatusChart.vue";
+import GameLikeDistribution from "@/components/users/GameLikeDistribution.vue";
 import { Icon } from "@vicons/utils";
 import { UserFriends, UsersSlash, Users } from "@vicons/fa";
 import UserChart from "@/components/users/UserChart.vue";
