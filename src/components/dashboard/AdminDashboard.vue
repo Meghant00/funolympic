@@ -1,9 +1,6 @@
 <template>
   <div class="pr-8">
     <h2 class="text-xl font-semibold py-4 text-gray-700">Dashboard</h2>
-    <!-- <div class="py-4">
-      <UserChart />
-    </div> -->
     <div class="grid md:grid-cols-3 gap-4">
       <div
         class="bg-white rounded-md shadow-md px-4 py-4 flex flex-col items-center justify-center gap-4 md:col-span-2"

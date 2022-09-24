@@ -21,7 +21,9 @@
         <p class="text-red-800 italic" v-if="loginError">
           {{ errorMessage }}
         </p>
-        <router-link to="" class="text-blue-600">Forgot Password?</router-link>
+        <router-link :to="{ name: 'ForgotPassword' }" class="text-blue-600"
+          >Forgot Password?</router-link
+        >
         <div class="w-full flex flex-row items-center justify-center">
           <button
             class="bg-primary rounded text-white text-xl font-semibold w-full py-2 transition-all duration-150 ease-linear hover:bg-primary-hover"
@@ -95,17 +97,14 @@ const loginClicked = () => {
   let flag = false;
   userStore.user.map((user) => {
     loginError.value = false;
-    if (
-      (email.value === user.email || email.value === user.username) &&
-      password.value === user.password
-    ) {
+    if (email.value === user.email && password.value === user.password) {
       flag = true;
       return;
     }
     if (!flag) {
       {
         loginError.value = true;
-        errorMessage.value = "Invalid Username/Email or Password";
+        errorMessage.value = "Invalid Email or Password";
         return;
       }
     }

@@ -50,5 +50,15 @@ export const useUserStore = defineStore("userStore", {
       const user = this.user.filter((user) => user.username == username)[0];
       user.blocked = 0;
     },
+    editProfile(user, email) {
+      let tempUser = this.user.filter((user) => user.email === email)[0];
+      tempUser = user;
+    },
+    changePassword(newPassword) {
+      const user = this.user.filter(
+        (user) => user.email === "meghant@gmail.com"
+      )[0];
+      user.password = newPassword;
+    },
   },
 });

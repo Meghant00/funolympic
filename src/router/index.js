@@ -9,6 +9,9 @@ import Schedule from "@/views/Schedule.vue";
 import Results from "@/views/Results.vue";
 import MedalDistribution from "@/views/MedalDistribution.vue";
 import LiveVideo from "@/views/LiveVideo.vue";
+import EditProfile from "@/views/EditProfile.vue";
+import ForgotPassword from "@/views/ForgotPassword.vue";
+import ResetPassword from "@/views/ResetPassword.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -22,6 +25,16 @@ const router = createRouter({
       path: "/sign-up",
       name: "Signup",
       component: SignUp,
+    },
+    {
+      path: "/forgot-password",
+      name: "ForgotPassword",
+      component: ForgotPassword,
+    },
+    {
+      path: "/reset-password",
+      name: "ResetPassword",
+      component: ResetPassword,
     },
     {
       path: "/dashboard",
@@ -42,6 +55,8 @@ const router = createRouter({
           component: MedalDistribution,
         },
         { path: "/live-video", name: "LiveVideo", component: LiveVideo },
+
+        { path: "/edit-profile", name: "EditProfile", component: EditProfile },
       ],
     },
   ],
