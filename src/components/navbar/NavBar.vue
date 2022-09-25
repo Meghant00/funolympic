@@ -46,9 +46,9 @@
           <div class="flex flex-col items-start justify-start gap-4 w-full">
             <router-link
               :to="{ name: 'EditProfile' }"
-              class="text-primary font-semibold transition-all duration-150 ease-linear hover:text-primary-hover"
+              class="bg-primary rounded text-white w-full py-2 px-4 transition-all duration-150 ease-linear hover:bg-primary-hover"
             >
-              Edit Profile
+              Profile
             </router-link>
             <button
               class="bg-primary rounded text-white w-full py-2 px-4 transition-all duration-150 ease-linear hover:bg-primary-hover"

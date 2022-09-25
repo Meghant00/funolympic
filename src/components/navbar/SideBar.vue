@@ -3,17 +3,16 @@
     <n-menu
       :options="menuOptions"
       class="!text-lg !font-medium"
-      v-if="user.isAdmin"
+      :value="getActiveKey"
     />
-    <n-menu :options="normalMenuOptions" class="!text-lg !font-medium" v-else />
   </div>
 </template>
 <script setup>
 import { NIcon, NMenu } from "naive-ui";
 import { h, ref } from "vue";
-import { RouterLink } from "vue-router";
+import { RouterLink, useRoute } from "vue-router";
 import { Home, Users, CalendarAlt, Video } from "@vicons/fa";
-const user = ref(JSON.parse(localStorage.getItem("user")));
+import { computed } from "vue";
 const renderIcon = (icon) => {
   return () => h(NIcon, null, { default: () => h(icon) });
 };
@@ -75,34 +74,23 @@ const menuOptions = ref([
     icon: renderIcon(Video),
   },
 ]);
-const normalMenuOptions = ref([
-  {
-    label: () =>
-      h(
-        RouterLink,
-        {
-          to: {
-            name: "Dashboard",
-          },
-        },
-        { default: () => "Home" }
-      ),
-    key: "dashboard",
-    icon: renderIcon(Home),
-  },
-  {
-    label: () =>
-      h(
-        RouterLink,
-        {
-          to: {
-            name: "Schedule",
-          },
-        },
-        { default: () => "Schedule" }
-      ),
-    key: "schedule",
-    icon: renderIcon(CalendarAlt),
-  },
-]);
+const route = useRoute();
+const getActiveKey = computed(() => {
+  if (route.path === "/dashboard") {
+    return "dashboard";
+  }
+
+  if (route.path === "/user") {
+    return "users";
+  }
+
+  if (route.path === "/schedule") {
+    return "schedule";
+  }
+
+  if (route.path === "/live-video") {
+    return "live-video";
+  }
+  return "";
+});
 </script>

@@ -22,10 +22,11 @@ export const useUserStore = defineStore("userStore", {
 
         {
           username: "user",
-          email: "normal.user@gmail.com",
+          email: "user@gmail.com",
           password: "user",
           isAdmin: 0,
           blocked: 0,
+          hasLoggedIn: 0,
         },
 
         {

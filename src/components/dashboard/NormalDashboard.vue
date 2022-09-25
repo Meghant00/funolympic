@@ -88,6 +88,7 @@ import ScheduleCard from "@/components/schedule/ScheduleCard.vue";
 import ResultCards from "@/components/results/ResultCards.vue";
 import { scheduleData } from "@/utils/scheduleData";
 import { ref } from "vue";
-
+const user = ref(null);
+user.value = JSON.parse(localStorage.getItem("user"));
 const data = ref(scheduleData.slice(0, 4));
 </script>
