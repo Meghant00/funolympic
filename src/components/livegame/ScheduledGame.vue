@@ -41,7 +41,7 @@
         >
           <Icon><ThumbsDown /></Icon><span>{{ dislikeNumber }}</span>
         </button>
-        <button>
+        <button @click="shareClicked">
           <Icon><Share /></Icon>
         </button>
         <button
@@ -99,6 +99,8 @@ const notificationStatus = ref(false);
 const message = useMessage();
 
 const loading = ref(true);
+
+const emits = defineEmits(["shareClicked"]);
 onMounted(() => {
   const date = new Date();
   date.setHours(date.getHours() + 2);
@@ -148,6 +150,10 @@ const addNotification = () => {
   }
 
   notificationStatus.value = !notificationStatus.value;
+};
+
+const shareClicked = () => {
+  emits("shareClicked");
 };
 </script>
 

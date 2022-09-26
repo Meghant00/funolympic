@@ -38,7 +38,6 @@ const navLinks = ref([
 
 const route = useRoute();
 const getActiveKey = computed(() => {
-  console.log(route.path);
   if (route.path === "/dashboard") {
     return "Dashboard";
   }

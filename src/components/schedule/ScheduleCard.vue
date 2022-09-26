@@ -1,7 +1,7 @@
 <template>
   <router-link
     :to="{ name: 'Broadcast', params: { id: props.id } }"
-    class="flex flex-col items-start justify-start gap-4 w-full transition-all duration-150 ease-linear group py-8 px-4 shadow-none lg:w-4/5 hover:bg-background-gray hover:shadow-md"
+    class="flex flex-col items-start justify-start gap-4 w-full transition-all duration-150 ease-linear group py-4 my-4 px-4 shadow-none rounded-md lg:w-4/5 bg-[#e9e9e9] hover:bg-[#ccc] hover:shadow-md"
   >
     <div
       class="flex flex-col items-start justify-start gap-4 w-full lg:w-[75%]"

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-[50px] flex flex-row items-center justify-between px-4 py-4 sticky top-0 bg-white"
+    class="w-full h-[50px] flex flex-row items-center justify-between px-4 py-4 sticky top-0 bg-white shadow"
   >
     <div class="logo w-full flex flex-row items-center justify-start gap-16">
       <router-link :to="{ name: 'Dashboard' }">

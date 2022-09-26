@@ -46,7 +46,7 @@
         >
           <Icon><ThumbsDown /></Icon><span>{{ dislikeNumber }}</span>
         </button>
-        <button>
+        <button @click="shareClicked">
           <Icon><Share /></Icon>
         </button>
       </div>
@@ -89,6 +89,8 @@ const route = useRoute();
 
 const currentLiveGame = ref(null);
 
+const emits = defineEmits(["shareClicked"]);
+
 const loading = ref(true);
 onMounted(() => {
   startDate.value = moment().format("DD/MM/YYYY [at] HH:mm");
@@ -124,6 +126,10 @@ const dislikeClicked = () => {
   }
   dislike.value = !dislike.value;
   like.value = false;
+};
+
+const shareClicked = () => {
+  emits("shareClicked");
 };
 </script>
 

@@ -1,8 +1,8 @@
 <template>
-  <div class="grid grid-cols-1 gap-x-4 gap-y-16 pt-4 w-full lg:grid-cols-3">
+  <div class="grid grid-cols-1 gap-x-4 pt-4 w-full lg:grid-cols-3">
     <router-link
       :to="{ name: 'Broadcast', params: { id: `1` } }"
-      class="w-full lg:col-span-2 flex flex-col items-start justify-start gap-2 px-8"
+      class="w-full lg:col-span-2 flex flex-col items-start justify-start gap-2 px-8 pb-16"
     >
       <div class="w-full">
         <h2 class="text-3xl font-semibold pb-4">Currently Most Watched Game</h2>
@@ -44,7 +44,7 @@
         </router-link>
       </div>
     </div>
-    <div class="lg:col-span-3 py-4 bg-background-gray-dark px-8">
+    <div class="lg:col-span-3 py-4 bg-white px-8">
       <h3 class="text-3xl pb-4">Today's Schedule</h3>
       <schedule-card
         v-for="schedule in data"

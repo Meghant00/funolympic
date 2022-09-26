@@ -4,14 +4,14 @@
       class="w-full lg:col-span-2 flex flex-col items-start justify-start gap-2"
       v-if="route.params.id < 9"
     >
-      <live-game />
+      <live-game @shareClicked="shareClicked" />
       <comments class="row-start-3 lg:row-start-1" />
     </div>
     <div
       class="w-full lg:col-span-2 flex flex-col items-start justify-start gap-2"
       v-else
     >
-      <scheduled-game />
+      <scheduled-game @shareClicked="shareClicked" />
       <comments class="row-start-3 lg:row-start-1" />
     </div>
     <div
@@ -45,6 +45,31 @@
         </div>
       </router-link>
     </div>
+
+    <n-modal
+      v-model:show="showModal"
+      class="flex flex-col w-full md:w-1/2 lg:w-1/4 bg-white rounded px-4 py-4"
+    >
+      <div>
+        <h3 class="text-lg font-semibold py-4">Share Link on</h3>
+        <div class="flex flex-row items-start justify-start gap-8 text-2xl">
+          <a
+            href="https://www.facebook.com"
+            target="_blank"
+            class="transition duration-100 ease-linear hover:text-primary"
+            @click="showModal = false"
+            ><Icon><Facebook /></Icon>
+          </a>
+          <a
+            href="https://www.twitter.com"
+            target="_blank"
+            class="transition duration-100 ease-linear hover:text-primary"
+            @click="showModal = false"
+            ><Icon><Twitter /></Icon>
+          </a>
+        </div>
+      </div>
+    </n-modal>
   </div>
 </template>
 <script setup>
@@ -54,8 +79,13 @@ import { useRoute } from "vue-router";
 import { onMounted, ref } from "vue";
 import { liveGameData } from "@/utils/liveGameData";
 import ScheduledGame from "@/components/livegame/ScheduledGame.vue";
+import { NModal } from "naive-ui";
+import { Icon } from "@vicons/utils";
+import { Facebook, Twitter } from "@vicons/fa";
 const route = useRoute();
 const liveGames = ref([]);
+
+const showModal = ref(false);
 
 onMounted(async () => {
   liveGames.value = await liveGameData.filter(
@@ -65,5 +95,9 @@ onMounted(async () => {
 
 const getLiveNumber = () => {
   return Math.floor(Math.random() * (7000 - 1000) + 1000);
+};
+
+const shareClicked = () => {
+  showModal.value = true;
 };
 </script>
