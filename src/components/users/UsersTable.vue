@@ -6,6 +6,12 @@
     class="w-full md:w-1/2 lg:w-1/4 bg-white px-4 py-4"
   >
     <div class="flex flex-col items-start justify-start gap-4">
+      <button
+        class="w-full flex flex-row justify-end"
+        @click="showModal = false"
+      >
+        <Icon><Times /></Icon>
+      </button>
       <div class="text-lg">
         Are you sure you want to
         {{ currentUser.blocked ? "unblock" : "block" }} user
@@ -19,6 +25,8 @@
   </n-modal>
 </template>
 <script setup>
+import { Icon } from "@vicons/utils";
+import { Times } from "@vicons/fa";
 import { NDataTable, NModal, useMessage } from "naive-ui";
 import { h, ref } from "vue";
 import { useUserStore } from "@/stores/userStore";

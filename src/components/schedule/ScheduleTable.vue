@@ -12,6 +12,13 @@
       class="flex flex-col items-start justify-start gap-4"
       v-if="deleteModal"
     >
+      <button
+        class="w-full flex flex-row justify-end"
+        @click="showModal = false"
+      >
+        <Icon><Times /></Icon>
+      </button>
+      <h3 class="text-xl">Delete Schedule</h3>
       <div class="text-lg">
         Are you sure you want delete {{ currentSchedule.title }} ?
       </div>
@@ -27,17 +34,35 @@
     closable
     class="w-full md:w-1/2 lg:w-1/4 bg-white px-4 py-4"
   >
-    <add-schedule @addClicked="addClicked" />
+    <div class="w-full flex flex-col items-start justify-start gap-4">
+      <button
+        class="w-full flex flex-row justify-end"
+        @click="addModal = false"
+      >
+        <Icon><Times /></Icon>
+      </button>
+      <add-schedule @addClicked="addClicked" class="w-full" />
+    </div>
   </n-modal>
   <n-modal
     v-model:show="editModal"
     closable
     class="w-full md:w-1/2 lg:w-1/4 bg-white px-4 py-4"
   >
-    <add-schedule @editClicked="editClicked" :id="currentSchedule.id" />
+    <div class="w-full flex flex-col items-start justify-start gap-4">
+      <button
+        class="w-full flex flex-row justify-end"
+        @click="editModal = false"
+      >
+        <Icon><Times /></Icon>
+      </button>
+      <add-schedule @editClicked="editClicked" :id="currentSchedule.id" />
+    </div>
   </n-modal>
 </template>
 <script setup>
+import { Icon } from "@vicons/utils";
+import { Times } from "@vicons/fa";
 import { NDataTable, NModal, useMessage } from "naive-ui";
 import { h, ref } from "vue";
 import PrimaryButton from "@/components/reuseable/PrimaryButton.vue";

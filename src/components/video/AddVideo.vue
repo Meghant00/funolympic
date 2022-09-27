@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full md:w-1/2 lg:w-1/4">
+  <div class="w-full">
     <h3 class="font-bold text-xl py-4">
       {{ !props.id ? "Add Video" : "Edit Video" }}
     </h3>
