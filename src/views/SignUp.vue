@@ -41,6 +41,30 @@
             Signup
           </button>
         </div>
+        <div class="w-full flex flex-row items-center justify-start">
+          <span class="w-full h-0.5 bg-gray-400"></span>
+          <span
+            class="text-gray-600 border-2 border-gray-600 rounded px-2 py-1 font-semibold"
+            >OR</span
+          >
+          <span class="w-full h-0.5 bg-gray-400"></span>
+        </div>
+        <div class="flex flex-row items-center justify-center gap-4 w-full">
+          <a
+            href="https://google.com"
+            target="_blank"
+            class="border border-gray-500 w-12 h-12 flex flex-row items-center justify-center rounded shadow"
+          >
+            <img :src="googleLogo" alt="logo" />
+          </a>
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            class="border border-gray-500 w-12 h-12 flex flex-row items-center justify-center rounded shadow"
+          >
+            <img :src="facebookLogo" alt="logo" class="w-[36px] h-[36px]" />
+          </a>
+        </div>
         <router-link :to="{ name: 'Login' }" class="text-blue-600"
           >Already Have an account? <span>Log in</span></router-link
         >
@@ -58,6 +82,8 @@ import { useRouter } from "vue-router";
 import logo from "@/assets/img/logo/fun-olympic.png";
 import { useUserStore } from "@/stores/userStore.js";
 import { useMessage } from "naive-ui";
+import googleLogo from "@/assets/img/google-logo.svg";
+import facebookLogo from "@/assets/img/facebook-logo.svg";
 import hand from "@/assets/img/bg.jpg";
 ("SignUp");
 
