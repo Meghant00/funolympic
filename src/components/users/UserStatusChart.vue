@@ -16,11 +16,11 @@ import { ref } from "vue";
 ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale);
 
 const chartData = ref({
-  labels: ["Active Users", "Blocked Users"],
+  labels: ["Active Users", "Inactive users", "Blocked Users"],
   datasets: [
     {
-      backgroundColor: ["#009e3d", "#a6002e"],
-      data: [95, 5],
+      backgroundColor: ["#009e3d", "#d1d1d1", "#a6002e"],
+      data: [85, 10, 5],
     },
   ],
 });
