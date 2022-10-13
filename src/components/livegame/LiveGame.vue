@@ -10,7 +10,7 @@
         class="w-full h-full object-cover"
         v-if="!currentLiveGame.video"
       />
-      <video controls autoplay muted="false" class="w-full h-full object-cover">
+      <video autoplay muted="false" class="w-full h-full object-cover">
         <source :src="currentLiveGame.video" type="video/mp4" />
       </video>
     </div>
