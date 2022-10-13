@@ -1,55 +1,69 @@
+import archeryImage from "@/assets/img/archery.jpg";
+import archeryVideo from "@/assets/video/archery.mp4";
+import fencingImage from "@/assets/img/fencing.jpg";
+import fencingVideo from "@/assets/video/fencing.mp4";
+import divingImage from "@/assets/img/diving.jpg";
+import divingVideo from "@/assets/video/diving.mp4";
+import golfImage from "@/assets/img/golf.jpg";
+import golfVideo from "@/assets/video/golf.mp4";
+import judoImage from "@/assets/img/judo.jpg";
+import judoVideo from "@/assets/video/judo.mp4";
+import rowingImage from "@/assets/img/rowing.jpg";
+import rowingVideo from "@/assets/video/rowing.mp4";
+import volleyballImage from "@/assets/img/volleyball.jpg";
+import tableTennisImage from "@/assets/img/table-tennis.jpg";
 export const liveGameData = [
   {
     id: 1,
-    image: "/src/assets/img/archery.jpg",
-    video: "/src/assets/video/archery.mp4",
+    image: archeryImage,
+    video: archeryVideo,
     title: "Archery",
     description:
       "Archery is the sport, practice, or skill of using a bow to shoot arrows. As a sport, archery is accessible to a wide range of people, no matter their age, gender or ability. It is a widespread pastime in both developed and developing countries. Archery is also one of the few sports that can be practised by able-bodied and impaired athletes on a level playing field",
   },
   {
     id: 2,
-    image: "/src/assets/img/diving.jpg",
+    image: divingImage,
     title: "Diving",
-    video: "/src/assets/video/diving.mp4",
+    video: divingVideo,
     description:
       "Diving is the sport of jumping or falling into water from a platform or springboard, usually while performing acrobatics. Diving is an internationally recognized sport that is part of the Olympic Games. In addition, unstructured and non-competitive diving is a recreational pastime. Competitors possess many of the same characteristics as gymnasts and dancers, including strength, flexibility, kinaesthetic judgment and air awareness.",
   },
   {
     id: 3,
-    image: "/src/assets/img/fencing.jpg",
-    video: "/src/assets/video/fencing.mp4",
+    image: fencingImage,
+    video: fencingVideo,
     title: "Fencing",
     description:
       "Fencing is a group of three related combat sports. The three disciplines in modern fencing are the foil, the épée, and the sabre (also saber); winning points are made through the weapon's contact with an opponent. A fourth discipline, singlestick, appeared in the 1904 Olympics but was dropped after that, and is not a part of modern fencing. Fencing was one of the first sports to be played in the Olympics. Based on the traditional skills of swordsmanship, the modern sport arose at the end of the 19th century, with the Italian school having modified the historical European martial art of classical fencing, and the French school later refining the Italian system.",
   },
   {
     id: 4,
-    image: "/src/assets/img/golf.jpg",
-    video: "/src/assets/video/golf.mp4",
+    image: golfImage,
+    video: golfVideo,
     title: "Golf",
     description:
       "Golf is a club-and-ball sport in which players use various clubs to hit balls into a series of holes on a course in as few strokes as possible. Golf, unlike most ball games, cannot and does not use a standardized playing area, and coping with the varied terrains encountered on different courses is a key part of the game. Courses typically have 18 or 9 holes, although they may have another number of holes. Each hole on the course must contain a teeing ground to start from, and a putting green containing the actual hole or cup. There are other standard forms of terrain in between, such as the fairway, rough (long grass), bunkers (or sand traps), and various hazards (water, rocks) but each hole on a course is unique in its specific layout and arrangement. ",
   },
   {
     id: 5,
-    image: "/src/assets/img/judo.jpg",
-    video: "/src/assets/video/judo.mp4",
+    image: judoImage,
+    video: judoVideo,
     title: "Judo",
     description:
       "Judo is a tremendous and dynamic combat sport that demands both physical prowess and great mental discipline. From a standing position, it involves techniques that allow you to lift and throw your opponents onto their backs. On the ground, it includes techniques that allow you to pin your opponents down to the ground, control them, and apply various chokeholds or joint locks until submission. ",
   },
   {
     id: 6,
-    image: "/src/assets/img/rowing.jpg",
-    video: "/src/assets/video/rowing.mp4",
+    image: rowingImage,
+    video: rowingVideo,
     title: "Rowing",
     description:
       "Rowing, sometimes called crew in the United States, is the sport of racing boats using oars. It differs from paddling sports in that rowing oars are attached to the boat using oarlocks, while paddles are not connected to the boat. Rowing is divided into two disciplines: sculling and sweep rowing. In sculling, each rower holds two oars—one in each hand, while in sweep rowing each rower holds one oar with both hands. There are several boat classes in which athletes may compete, ranging from single sculls, occupied by one person, to shells with eight rowers and a coxswain, called eights. There are a wide variety of course types and formats of racing, but most elite and championship level racing is conducted on calm water courses 2 kilometres (1.2 mi) long with several lanes marked using buoys.",
   },
   {
     id: 7,
-    image: "/src/assets/img/table-tennis.jpg",
+    image: tableTennisImage,
     video: null,
     title: "Table Tennis",
     description:
@@ -57,7 +71,7 @@ export const liveGameData = [
   },
   {
     id: 8,
-    image: "/src/assets/img/volleyball.jpg",
+    image: volleyballImage,
     video: null,
     title: "Volleyball",
     description:

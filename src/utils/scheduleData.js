@@ -1,9 +1,17 @@
+import menClycing from "@/assets/img/cycling/men-cycling.jpg";
+import womenClycing from "@/assets/img/cycling/women-cycling.jpg";
+import menBmx from "@/assets/img/cycling/men-bmx.jpg";
+import womenBmx from "@/assets/img/cycling/women-bmx.jpg";
+import mensSingle from "@/assets/img/badminton/mens-single.jpg";
+import womensSingle from "@/assets/img/badminton/womens-single.jpg";
+import mensDouble from "@/assets/img/badminton/mens-double.jpg";
+import womensDouble from "@/assets/img/badminton/womens-double.jpg";
 export const scheduleData = [
   {
     id: 9,
     date: "15/09/2022",
     time: "5:00",
-    image: "/src/assets/img/cycling/men-cycling.jpg",
+    image: menClycing,
     title: "Men's Road Cycling",
     link: "/men-cycling",
     description:
@@ -13,7 +21,7 @@ export const scheduleData = [
     id: 10,
     date: "15/09/2022",
     time: "8:00",
-    image: "/src/assets/img/cycling/women-cycling.jpg",
+    image: womenClycing,
     title: "Women's Road Cycling",
     link: "/women-cycling",
 
@@ -24,7 +32,7 @@ export const scheduleData = [
     id: 11,
     date: "15/09/2022",
     time: "12:00",
-    image: "/src/assets/img/cycling/women-bmx.jpg",
+    image: womenBmx,
     title: "Women's BMX Freestyle",
     link: "/women-bmx",
     description:
@@ -34,7 +42,7 @@ export const scheduleData = [
     id: 12,
     date: "15/09/2022",
     time: "12:00",
-    image: "/src/assets/img/cycling/men-bmx.jpg",
+    image: menBmx,
     title: "Men's BMX Freestyle",
     link: "/men-bmx",
     description:
@@ -44,7 +52,7 @@ export const scheduleData = [
     id: 13,
     date: "16/09/2022",
     time: "12:00",
-    image: "/src/assets/img/badminton/mens-single.jpg",
+    image: mensSingle,
     title: "Men's Single Badminton",
     link: "/men-bmx",
     description:
@@ -54,7 +62,7 @@ export const scheduleData = [
     id: 14,
     date: "16/09/2022",
     time: "12:00",
-    image: "/src/assets/img/badminton/womens-single.jpg",
+    image: womensSingle,
     title: "Women's Single Badminton",
     link: "/men-bmx",
     description:
@@ -64,7 +72,7 @@ export const scheduleData = [
     id: 15,
     date: "16/09/2022",
     time: "12:00",
-    image: "/src/assets/img/badminton/mens-double.jpg",
+    image: mensDouble,
     title: "Men's Doubles Badminton",
     link: "/men-bmx",
     description:
@@ -74,7 +82,7 @@ export const scheduleData = [
     id: 16,
     date: "16/09/2022",
     time: "12:00",
-    image: "/src/assets/img/badminton/womens-double.jpg",
+    image: womensDouble,
     title: "Women's Doubles Badminton",
     link: "/men-bmx",
     description:
